@@ -46,10 +46,15 @@ echo "Figure 12 >>> $ cd ../stars; ./rotationcurve.py ../Paper/rotationcurve.pdf
 # Figure 12
 cd ../stars; ./rotationcurve.py ../Paper/rotationcurve.pdf; cd ../Paper
 
+echo "Figure 13 >>> $ cd ../stars; ./thindisk.py -save=../Paper/thindisk.pdf infile=../data/r-theta-metabins_thindisk.csv; cd ../Paper"
+# Figure 13
+cd ../stars; ./thindisk.py -save=../Paper/thindisk.pdf infile=../data/r-theta-metabins_thindisk.csv; cd ../Paper
+
+
 #===========================================================
 # INCLUDED FILES:
 
-echo ">>> $ cd ../stars; cp pearl_corr.fits ../Paper; cd ../Paper"
+echo ">>> $ cd ../data; cp pearl_corr.fits ../Paper; cd ../Paper"
 # pearl_corr.fits
 cd ../data; cp pearl_corr.fits ../Paper; cd ../Paper
 

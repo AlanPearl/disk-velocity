@@ -31,7 +31,7 @@ if not 'gridline' in given:
 if plotnum == 1:
 	
 	if not 'infile' in given:
-		infile = 'qagcoords_ltpm30.fits'
+		infile = '../data/qagcoords_ltpm30.fits'
 		#infile = 'qsocoords_dedup.fits'
 	if not 'xtit' in given:
 		xtit = r'Proper Motion (mas yr$^{-1}$)'
@@ -112,7 +112,7 @@ if plotnum == 1:
 else:
 	
 	if not 'infile' in given:
-		infile = 'dist_vs_match3.fits'
+		infile = 'dist_vs_match.fits'
 	if not 'xtit' in given:
 		xtit = 'Angular Separation (degrees)'
 	if not 'ytit' in given:

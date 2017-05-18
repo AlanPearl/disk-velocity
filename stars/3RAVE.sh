@@ -23,7 +23,7 @@
 
 ./metabins.py infile=../data/spatial-bins.csv binnames=r zcut=or zgt=.2 zlt=-.2 outfile=../data/r-metabins_thickdisk.csv
 
-# Make the two important figures in this directory for comparison to F star data
+# Make the two important figures for comparison
 # This time, change R limits and theta velocity shift
 
 # Figure 10

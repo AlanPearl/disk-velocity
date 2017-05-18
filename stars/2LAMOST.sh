@@ -21,7 +21,7 @@
 
 ./metabins.py infile=../data/spatial-bins.csv binnames=r zcut=or zgt=.2 zlt=-.2 outfile=../data/r-metabins_thickdisk.csv
 
-# Make the two important figures in this directory for comparison to F star data
+# Make the two important figures for comparison to F star data
 
 # Figure 10
 ./sideview.py -save=sideviewLAMOST.pdf

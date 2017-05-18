@@ -9,7 +9,6 @@ if not path in sys.path:
     sys.path.insert(1, path)
 del path
 from alan import bindata, read_argv, writeASCII
-from plotmodule import *
 import numpy as np
 import pyfits
 import matplotlib.pyplot as plt

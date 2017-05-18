@@ -9,7 +9,6 @@ if not path in sys.path:
     sys.path.insert(1, path)
 del path
 from alan import read_argv, prse
-#from plotmodule import *
 import numpy as np
 import pyfits
 import matplotlib.pyplot as plt
@@ -29,7 +28,6 @@ def get_aspect(xvar,yvar):
 		return 1
 
 def vvectorPlot(ax,cax):
-	# Defining variables
 	RGC_AVG = 9.
 	corrname = 'pearl'
 	selim = '8,10,10'
