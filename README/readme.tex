@@ -6,13 +6,14 @@
 
 \title{\textbf{READ ME:} A Map of the Local Velocity Substructure in the Milky Way Disk}
 \author{\textit{Alan Pearl}\\
-  \texttt{alanpearl13@gmail.com}}
- \date{\today}
+	\texttt{alanpearl13@gmail.com}\\
+	\texttt{https://github.com/AlanPearl/disk-velocity}}
+	\date{\today}
 \maketitle
 
 \section{Overview}
 
-This paper contains a detailed explanation of the procedure used in the paper \textit{A Map of the Local Velocity Substructure in the Milky Way Disk} (\texttt{Paper/ms.pdf}). During this project, I created the most accurate proper motion correction algorithm to date, which can remove systematic error at very small scales, and estimate how much error is remaining. I used this to calculate three dimensional velocities of Disk stars and find substructure in the motion of the Disk. I will explain the required format of the observational data files, and how to use them with my codes to recreate all of the results and figures. 
+This paper contains a detailed explanation of the procedure used in the paper \textit{A Map of the Local Velocity Substructure in the Milky Way Disk} (\texttt{Paper/ms.pdf}). During this project, I created the most accurate PPMXL proper motion correction algorithm to date, which can remove systematic error at very small scales, and estimate how much error is remaining. I used this to calculate three dimensional velocities of Disk stars and find substructure in the motion of the Disk. I will explain the required format of the observational data files, and how to use them with my codes to recreate all of the results and figures. 
 
 My codes are entirely written in Python, and scripted with Bash. In order for my codes to work, you must be able to execute Python~2.7.12 from \texttt{/usr/bin/python2} and Bash from \texttt{/bin/bash}. Make sure the Python modules NumPy, PyFITS, and matplotlib are installed. I recommend using a Unix system, but it is probably possible to run this on Windows using Cygwin or something similar.
 
@@ -46,7 +47,7 @@ In order to make the LAMOST data compatible with my code that transforms its coo
 
 The code \texttt{add\_pearl\_corr.py} uses my proper motion correction table (created in Section~\ref{sec:qso} -- \texttt{pearl\_corr.fits}) to calculate corrected values for each star in a file. The file must be a .fits file which contains proper motion columns for each component, with headers \texttt{"pmra"} and \texttt{"pmde"} and a position given by columns with headers \texttt{"ra"} and \texttt{"dec"}. I use this code to add correction values to \texttt{LAMOST.fits}.
 
-The code \texttt{mkcoords.fits} contains some useful functions which transform the data from observational coordinates and velocities to Galactocentric Cylindric coordinates, which is what I use in my paper. In the script \texttt{1stars.sh}, I call this code with the \texttt{-Fonly} argument (this removes any star not designated as an F star, which preserves direct comparability with Carlin et al. 2013). The flag \texttt{-elimsys} allows the removal of stars due to systematic error (by default, this removes anything with: $V_R > 8$~km~s$^{-1}$ or $V_\theta > 10$~km~s$^{-1}$ or $V_Z > 10$~km~s$^{-1}$). The flag \texttt{-pearl\_corr\_only} only uses proper motions corrected by my correction, instead of using the Vickers corrections where there is no Pearl correction, or where it contains a large uncertainty.
+The code \texttt{mkcoords.fits} contains some useful functions which transform the data from observational coordinates and velocities to Galactocentric Cylindric coordinates, which is what I use in my paper. In the script \texttt{1stars.sh}, I call this code with the \texttt{-Fonly} argument (this removes any star not designated as an F star, which preserves direct comparability with Carlin et al. 2013). The flag \texttt{-elimsys} allows the removal of stars due to systematic error (by default, this removes anything with: $V_R > 8$~km~s$^{-1}$ or $V_\theta > 10$~km~s$^{-1}$ or $V_Z > 10$~km~s$^{-1}$). The flag \texttt{-pearl\_corr\_only} only uses proper motions corrected by my correction, instead of using the Vickers corrections where there is no Pearl correction, or where it contains large uncertainty.
 
 The code \texttt{spatialbins.py} bins all of the stellar data into three-dimensional bins in $R$, $\theta$, and $Z$, approximately $0.2$~kpc wide on each side. This is used directly in Figure~11. Figure~12 also uses this data, but it averages over one axis at a time via the code \texttt{metabins.py}.
 
